@@ -92,16 +92,6 @@
         ]
       }
     ],
-    "UserPromptSubmit": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "jq -r '.prompt // .user_prompt // \"\"' | grep -qiE \"wrap.?up|we.?re done|we are done|that.?s (all|it)|thanks.{0,5}that.?s it|let.?s stop|done for now|good for now|signing off|that wraps it up\" && printf '%s' '{\"hookSpecificOutput\":{\"hookEventName\":\"UserPromptSubmit\",\"additionalContext\":\"User signaled session wrap-up. Answer their message, then offer /flowlog in one line.\"}}' || true"
-          }
-        ]
-      }
-    ],
     "PreToolUse": [
       {
         "matcher": "Bash",

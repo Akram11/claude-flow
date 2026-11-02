@@ -1,6 +1,6 @@
 ---
 name: self-drive
-description: Per-task autonomous mode. Triggers on "self-drive this", "go self-driving", "self-drive X", or explicit /self-drive. Commits Claude to the self-driving behavior rules from ~/.claude/CLAUDE.md (no check-ins, batch calls, only pause for genuinely risky ops) AND registers an end-of-task PushNotification so the user knows when to come back. Reminds the user to Shift+Tab into acceptEdits/auto mode if they haven't — that's the one piece a skill can't automate.
+description: Per-task autonomous mode. Triggers on "self-drive this", "go self-driving", "self-drive X", or explicit /self-drive. Commits Claude to the self-driving behavior rules below (no check-ins, batch calls, only pause for genuinely risky ops) AND registers an end-of-task PushNotification so the user knows when to come back.
 ---
 
 # Self-driving mode (per-task)
@@ -17,15 +17,14 @@ If the trigger came with no task ("go self-driving" with no preceding context), 
 
 ## Step 2: Permission-mode handoff
 
-A skill can't flip permission mode. Tell the user in one line:
+Sessions start in `auto` mode by default. A skill can't flip permission mode, so only if the session
+is in Manual mode, tell the user in one line:
 
-> "If you haven't already, Shift+Tab to `acceptEdits` (auto-approves edits, still asks for risky bash) or `auto` (smart classifier). Otherwise every Edit/Bash will still prompt and self-driving is moot."
+> "This session is in Manual mode — Shift+Tab to `auto`, otherwise every Edit/Bash will prompt and self-driving is moot."
 
 Do NOT block waiting for confirmation — assume the user will handle it. Proceed with the work.
 
 ## Step 3: Behavior rules for the rest of this task
-
-Follow the **Self-driving mode** section of `~/.claude/CLAUDE.md` verbatim. Specifically:
 
 - **Skip optional check-ins.** No "should I proceed?" between approved steps. No clarifying questions unless genuinely blocked (ambiguous goal, missing critical info, conflicting instructions).
 - **Batch tool calls aggressively.** All independent calls in a single message.
@@ -68,7 +67,7 @@ When you exit due to a blocker, **send the ping immediately** with the specific 
 
 ## What this skill is NOT
 
-- Not a permission-bypass. The user still has to Shift+Tab.
+- Not a permission-bypass. Ask rules and the auto-mode classifier still apply.
 - Not a license to skip `/check` before declaring done — autonomous still means *complete*, not *fast and sloppy*.
 - Not for tasks where you don't already understand the scope. If you'd normally ask 2+ clarifying questions, ask them up front (Step 1) instead of guessing autonomously.
 - Not for risky/exploratory tasks. If the user says "self-drive" on a refactor you haven't planned yet, push back — "this needs a plan first; want me to plan, get your sign-off, then self-drive the implementation?"

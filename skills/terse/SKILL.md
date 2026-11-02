@@ -1,13 +1,12 @@
 ---
 name: terse
-description: Hard switch to maximum-compression output for the rest of the session. Use when the user says "/terse", "terse mode", "be terse", "caveman mode", "compress output", or "stop padding your answers". Invoke again (or "/terse off") to restore the normal default. This is the aggressive override on top of the standing output rule in ~/.claude/CLAUDE.md § Communication — not a one-off "be brief".
+description: Hard switch to maximum-compression output for the rest of the session. Use when the user says "/terse", "terse mode", "be terse", "caveman mode", "compress output", or "stop padding your answers". Invoke again (or "/terse off") to restore the normal default. This is the aggressive override on top of the selected output style — not a one-off "be brief".
 ---
 
 # Terse Mode
 
-**The standing default already lives in `~/.claude/CLAUDE.md` § Communication** — answer first,
-~4 lines, no filler, stay on the question. That is the single source of truth for output style and
-it applies with or without this skill. Do not restate it here.
+**The standing default is the selected output style** (Concise): lead with the result, no
+narration, short by default. It applies with or without this skill. Do not restate it here.
 
 `/terse` is the override for when even that default is too much: long sessions, rapid back-and-forth,
 reading on a phone, or heavy parallel work.

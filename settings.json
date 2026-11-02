@@ -5,87 +5,70 @@
     "sessionUrl": false
   },
   "permissions": {
+    "defaultMode": "auto",
     "allow": [
-      "Bash(yarn typecheck:*)",
-      "Bash(yarn lint:*)",
-      "Bash(yarn test:*)",
-      "Bash(yarn type:*)",
-      "Bash(yarn format:*)",
-      "Bash(npx tsc:*)",
-      "Bash(git status*)",
-      "Bash(git diff*)",
-      "Bash(git log*)",
-      "Bash(git show*)",
-      "Bash(git branch*)",
-      "Bash(git fetch*)",
-      "Bash(git ls-files*)",
-      "Bash(git rev-parse*)",
-      "Bash(git remote*)",
-      "Bash(git stash*)",
-      "Bash(git worktree*)",
+      "Bash(npm test *)",
+      "Bash(npm run test *)",
+      "Bash(npm run lint *)",
+      "Bash(npm run typecheck *)",
+      "Bash(yarn test *)",
+      "Bash(yarn lint *)",
+      "Bash(yarn typecheck *)",
+      "Bash(yarn tsc *)",
+      "Bash(pnpm test *)",
+      "Bash(pnpm lint *)",
+      "Bash(pnpm typecheck *)",
+      "Bash(pnpm tsc *)",
+      "Bash(npx tsc *)",
       "Bash(git add *)",
-      "Bash(git commit*)",
-      "Bash(git pull*)",
-      "Bash(git push)",
-      "Bash(git push *)",
-      "Bash(git merge*)",
-      "Bash(git rebase *)",
+      "Bash(git commit *)",
+      "Bash(git fetch *)",
+      "Bash(git pull *)",
       "Bash(git switch *)",
-      "Bash(git restore *)",
-      "Bash(git tag*)",
-      "Bash(git cherry-pick*)",
-      "Bash(git config*)",
-      "Bash(git reset*)",
-      "Bash(git reflog*)",
-      "Bash(gh pr view*)",
-      "Bash(gh pr checks*)",
-      "Bash(gh pr list*)",
-      "Bash(gh pr comment*)",
-      "Bash(gh issue view*)",
-      "Bash(gh issue list*)",
-      "Bash(gh run list*)",
+      "Bash(git stash)",
+      "Bash(git stash push *)",
+      "Bash(git stash list *)",
+      "Bash(gh pr view *)",
+      "Bash(gh pr diff *)",
+      "Bash(gh pr checks *)",
+      "Bash(gh pr list *)",
+      "Bash(gh issue view *)",
+      "Bash(gh issue list *)",
+      "Bash(gh run list *)",
+      "Bash(gh run view *)",
+      "Bash(gh repo view *)",
       "Bash(gh auth status)",
-      "Bash(wc *)",
-      "Bash(ls *)",
       "Bash(jq *)",
-      "Bash(playwright-cli *)",
+      "Read(~/.claude/**)",
+      "Read(//tmp/**)",
+      "WebSearch",
       "mcp__serena__get_symbols_overview",
       "mcp__serena__find_symbol",
-      "mcp__serena__find_referencing_symbols",
-      "mcp__playwright__browser_snapshot",
-      "mcp__playwright__browser_navigate",
-      "mcp__playwright__browser_take_screenshot",
-      "mcp__figma__get_screenshot",
-      "Bash(gh pr:*)",
-      "Bash(git checkout *)",
-      "Bash(yarn test *)",
-      "mcp__playwright__browser_evaluate",
-      "mcp__playwright__browser_tabs",
-      "mcp__playwright__browser_wait_for",
-      "mcp__playwright__browser_click",
-      "mcp__playwright__browser_console_messages",
-      "Read(//tmp/**)",
-      "Bash(playwright-cli snapshot *)",
-      "Bash(grep -E \"\\\\.\\(ts|tsx\\)$\")",
-      "Bash(gh api *)",
-      "Read(~/.claude/**)",
-      "Bash(yarn install *)",
-      "WebSearch",
-      "Bash(yarn tsc *)",
-      "Bash(yarn jest *)",
-      "Bash(yarn eslint *)",
-      "Bash(npm test*)",
-      "Bash(pnpm test*)"
+      "mcp__serena__find_referencing_symbols"
     ],
     "ask": [
-      "Bash(git push --force*)",
-      "Bash(git push -f *)",
-      "Bash(git reset --hard*)",
-      "Bash(git branch -D*)",
-      "Bash(git clean -f*)",
-      "Bash(git rebase -i*)"
+      "Bash(git push *--force)",
+      "Bash(git push *--force *)",
+      "Bash(git push *-f)",
+      "Bash(git push *-f *)",
+      "Bash(git reset *--hard*)",
+      "Bash(git branch *-D*)",
+      "Bash(git clean *)",
+      "Bash(git rebase *-i*)"
+    ]
+  },
+  "autoMode": {
+    "environment": [
+      "$defaults",
+      "**Organization**: none — a personal developer account (Akram, GitHub `Akram11`). Primary use: software development (web and React Native apps).",
+      "**Source control**: github.com/Akram11 and every repo under it, plus repos in other accounts or organizations that the user works on, cloned under `~/Developer/work/`. Pushes to these repos are routine.",
+      "**Repository visibility**: repos under github.com/Akram11 are private unless the user says otherwise; claude-flow is public.",
+      "**Host containment**: an ordinary personal macOS developer machine with open internet."
     ],
-    "defaultMode": "auto"
+    "allow": [
+      "$defaults",
+      "Amend and force-push with lease: amending a commit and pushing with `--force-with-lease` to one of the user's own feature branches is allowed (never `main`, `master` or another shared branch). The user prefers amended fix-ups over follow-up commits."
+    ]
   },
   "hooks": {
     "Notification": [
@@ -104,7 +87,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "printf '%s' '{\"hookSpecificOutput\":{\"hookEventName\":\"PreCompact\",\"additionalContext\":\"Pre-compact capture: this conversation is about to be compressed. Before that happens, surface non-obvious learnings from this session — hidden constraints, workarounds, undocumented conventions, incomplete handoffs. For each, name where it belongs (.claude/rules/, <skill>/SKILL.md, memory, docs/operations.md, or CLAUDE.md). If nothing to capture, say so briefly. Follows the Document learnings for future sessions rule.\"}}'"
+            "command": "printf '%s' '{\"hookSpecificOutput\":{\"hookEventName\":\"PreCompact\",\"additionalContext\":\"Pre-compact capture: this conversation is about to be compressed. Before that happens, surface non-obvious learnings from this session — hidden constraints, workarounds, undocumented conventions, incomplete handoffs. For each, name where it belongs (.claude/rules/, <skill>/SKILL.md, memory, docs/operations.md, or CLAUDE.md). If nothing to capture, say so briefly.\"}}'"
           }
         ]
       }
@@ -132,52 +115,13 @@
       }
     ]
   },
-  "enabledPlugins": {
-    "warp@claude-code-warp": true
-  },
-  "extraKnownMarketplaces": {
-    "claude-code-warp": {
-      "source": {
-        "source": "github",
-        "repo": "warpdotdev/claude-code-warp"
-      }
-    }
-  },
-  "tui": "fullscreen",
-  "skipDangerousModePermissionPrompt": true,
-  "skipWorkflowUsageWarning": true,
+  "outputStyle": "Concise",
   "theme": "dark",
+  "tui": "fullscreen",
   "editorMode": "normal",
-  "preferredNotifChannel": "kitty",
+  "enableWorkflows": true,
   "remoteControlAtStartup": true,
   "inputNeededNotifEnabled": true,
   "agentPushNotifEnabled": true,
-  "skipAutoPermissionPrompt": true,
-  "autoMode": {
-    "environment": [
-      "### Org-wide",
-      "**Organization**: None configured",
-      "**Cloud provider(s)**: None configured",
-      "**Repository visibility**: repos under `github.com/Akram11`, mostly private",
-      "**Internal sharing / snippet hosting**: None configured — treat public paste/gist services as outside the trust boundary",
-      "**Secrets management**: None configured",
-      "**Default / protected branches**: per repo; usually `main`",
-      "**CI/CD deploy targets**: None configured",
-      "**Network posture**: None configured",
-      "**Host containment**: None configured — assume Claude Code runs on an ordinary developer machine (macOS) with open internet",
-      "**Source control**: GitHub account `Akram11` — `github.com/Akram11/*` is trusted; pushes to the user's own repos are routine",
-      "**Trusted internal domains**: None configured",
-      "**Trusted cloud buckets**: None configured",
-      "**Key internal services**: None configured",
-      "**Internal package registry**: None configured",
-      "**Sensitive data locations & audiences**: any file or store holding personal data, confidential business data, credentials, regulated data, or similarly sensitive material; preserve exact handles when known and share only with audiences cleared at the [named+specifics] bar",
-      "**Data retention / declassification**: None configured",
-      "**Sensitive remote targets**: any namespace, host, or container whose name carries `prod` or `production` as a whole word or name segment",
-      "**Protected deployment namespaces / environments**: None configured — fall back to the Sensitive remote targets heuristic",
-      "**Protected IaC scopes**: IAM, RBAC, networking, quota, and node-pool resources; anything whose name or tag carries `prod` or `production` as a whole word or name segment",
-      "### User-specific",
-      "**Primary use of Claude Code**: software development",
-      "**Org-specific CLIs**: None configured"
-    ]
-  }
+  "skipAutoPermissionPrompt": true
 }

@@ -20,7 +20,7 @@ link() {
   echo "linked  ${2/#$HOME/~}"
 }
 
-mkdir -p $C/skills
+mkdir -p $C/skills $C/rules
 
 # First install only: archive pieces of the older setup that this toolkit replaces.
 if [[ ! -e $C/.claude-flow-installed ]]; then
@@ -30,16 +30,18 @@ if [[ ! -e $C/.claude-flow-installed ]]; then
 fi
 mkdir -p $C/plans
 
+mkdir -p $REPO/notes
 link $REPO/CLAUDE.md     $C/CLAUDE.md
 link $REPO/settings.json $C/settings.json
 link $REPO/commands      $C/commands
 link $REPO/notes         $C/notes
 link $REPO/hooks         $C/hooks
 for s in $REPO/skills/*(/); do link $s $C/skills/${s:t}; done
+for r in $REPO/rules/*.md; do link $r $C/rules/${r:t}; done
 
 # The flow log is personal, so it lives in the private claude-notes repo next to this one.
 NOTES=${REPO:h}/claude-notes
-[[ -d $NOTES ]] || git clone -q git@github.com:Akram11/claude-notes.git $NOTES
+[[ -d $NOTES ]] || gh repo clone Akram11/claude-notes $NOTES -- -q
 ln -sfn $NOTES/ai-flow-log.md $REPO/notes/ai-flow-log.md
 echo "linked  notes/ai-flow-log.md -> ${NOTES/#$HOME/~}"
 

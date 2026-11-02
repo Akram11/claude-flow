@@ -20,7 +20,7 @@ Then:
 1. Show me the entry.
 2. If a **project learning** is listed, offer to save it to its destination. Save only on my OK.
 3. Read the whole log. If the same friction appears in 3 or more entries, propose one concrete
-   edit to `~/.claude/CLAUDE.md` or a command, as a diff. Apply it only on my OK.
-4. If `~/Personal/claude-notes` (the log, private) or `~/Personal/claude-flow` (public) has
+   edit to `~/.claude/CLAUDE.md`, a file in `~/.claude/rules/`, or a command, as a diff. Apply it only on my OK.
+4. If `~/Developer/claude-notes` (the log, private) or `~/Developer/claude-flow` (public) has
    uncommitted changes, show `git status --short` for each and offer to commit and push them.
    Do both only on my OK.

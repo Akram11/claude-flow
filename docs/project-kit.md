@@ -1,12 +1,12 @@
 # Project kit — `/kickoff` for any project
 
-Created: 2026-10-15. Toolkit repo: `~/Personal/claude-flow` (private `Akram11/claude-flow`).
+Created: 2026-10-15. Toolkit repo: `~/Developer/claude-flow` (private `Akram11/claude-flow`).
 
 ## How to pick this up
 Status: planned, nothing built yet.
 
 ```
-cd ~/Personal/claude-flow
+cd ~/Developer/claude-flow
 claude
 ```
 
@@ -55,7 +55,7 @@ create a task, update its status, fetch a design. Flow commands say "the tracker
 - New `/ship`: push → PR → deploy → verify; in client mode it also drafts the reply and a time estimate.
 
 ## First slice
-- `/kickoff` + the `CLAUDE.md` template + one tracker adapter, all in `~/Personal/claude-flow`.
+- `/kickoff` + the `CLAUDE.md` template + one tracker adapter, all in `~/Developer/claude-flow`.
 - Fold `/onboard` into `/kickoff`.
 - Leave out for now: `/ship`, design adapters, client mode.
 

@@ -9,12 +9,17 @@ Project facts live in each project's own `CLAUDE.md`, never here.
 
 | Piece | What it is |
 |---|---|
-| `CLAUDE.md` | How I work and how replies are shaped. Start here. |
+| `CLAUDE.md` | Environment, scope of action, the flow, safety. Start here. |
+| `rules/` | `working.md` (habits that each cost real work once), `code.md` (style, verification, commits, plans) |
 | `commands/` | `/slice`, `/check`, `/review-commit`, `/flowlog` |
-| `skills/` | `self-drive`, `terse`, `onboard`, `browse` |
-| `settings.json` | Permissions, hooks, plugins |
+| `skills/` | `self-drive`, `terse`, `onboard`, `browse`, `brand`, `react-native` |
+| `settings.json` | Auto mode, permissions, auto-mode environment, hooks |
 | `hooks/` | `pre-push-check.sh`: blocks `git push` until type-check, lint and tests pass |
-| `notes/` | Machine notes. `ai-flow-log.md`, which `/flowlog` grows, is linked in from a private repo |
+| `docs/` | Not installed. `project-kit.md` (next step), `mcp-setup.md` |
+
+Reply style comes from the Concise output style, set in `settings.json`.
+The flow log (`notes/ai-flow-log.md`, grown by `/flowlog`) is linked in from the private
+`claude-notes` repo.
 
 ## Install
 
@@ -22,7 +27,8 @@ Project facts live in each project's own `CLAUDE.md`, never here.
 
 Symlinks everything into `~/.claude`, so edits here take effect immediately.
 Existing files are moved to `~/.claude/_archive/<date>/` first. Safe to re-run;
-re-run it after adding a new skill.
+re-run it after adding a new skill or rule. MCP servers are set up separately: see
+`docs/mcp-setup.md`.
 
 ## Growing it
 
